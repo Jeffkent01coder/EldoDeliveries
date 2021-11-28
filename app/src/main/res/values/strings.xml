@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">EldoDeliveries</string>
+    <string name="destination">Destination</string>
+    <string name="location">Location</string>
+    <string name="item_name">Item name</string>
+    <string name="make_delivery_order">Make Delivery Order</string>
+    <string name="enter_location">Enter Location</string>
+    <string name="enter_item_name">Enter Item Name</string>
+    <string name="enter_destination">Enter Destination</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="register">Register</string>
+    <string name="username">UserName</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="password">Password</string>
+    <string name="eldo_deliveries">ELDO DELIVERIES</string>
+    <string name="your_choice_of_delivery">Your choice of delivery</string>
+</resources>

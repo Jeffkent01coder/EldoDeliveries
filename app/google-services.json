@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "44811957288",
+    "project_id": "eldodeliveries",
+    "storage_bucket": "eldodeliveries.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44811957288:android:7b59f369fb99e6560ef11d",
+        "android_client_info": {
+          "package_name": "com.jeff.eldodeliveries"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "44811957288-hq3j0geq5vss3n97lmca5co0sh7kmjs1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYo3NWYZZmn98C7XdOLrdvc4ejYBoLPMc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "44811957288-hq3j0geq5vss3n97lmca5co0sh7kmjs1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
