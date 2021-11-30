@@ -1,29 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#1A74FB"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <LinearLayout
         android:layout_width="match_parent"
-        tools:listitem="@layout/eldo_rv_item"
-        app:layoutManager="LinearLayoutManager"
-        android:layout_height="match_parent"
-        android:id="@+id/idRVItems"/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
+        android:background="#26E171"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:tint="@color/white"
-        android:src="@drawable/ic_baseline_add_24"
-        android:layout_margin="20dp"
-        android:id="@+id/idFABAdd"
-        app:backgroundTint="@color/blue_shade_2"/>
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="5dp"
+        android:padding="10dp"
+        android:orientation="horizontal">
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:layout_marginStart="20dp">
+
+            <TextView
+                android:id="@+id/tv_userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/white"
+                android:text="@string/welcome_to_eldor_hub_deliveries"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tv_userTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="@string/your_choice_of_delivery"
+                android:textStyle="normal"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/EldoItems"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginBottom="4dp"
+            android:layout_weight="0.5"
+            android:paddingTop="8dp"
+            tools:listitem="@layout/eldo_rv_item" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#00bfff"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/ic_baseline_message_24"
+                        />
+
+
+
+                 <Button
+                     android:id="@+id/btnSend"
+                     android:layout_width="105dp"
+                     android:backgroundTint="#26E171"
+                     android:text="@string/send_message"
+                     android:layout_marginStart="1dp"
+                     android:layout_height="80dp" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="top"
+                        android:src="@drawable/ic_baseline_phone_24"
+                        />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                       <Button
+                           android:layout_width="108dp"
+                           android:id="@+id/btnCall"
+                           android:text="@string/call_for_delivery"
+                           android:backgroundTint="#26E171"
+                           android:layout_height="60dp"
+                           android:layout_marginStart="2dp"
+                           />
+
+                        <Button
+                            android:layout_width="108dp"
+                            android:id="@+id/btnPay"
+                            android:text="@string/make_payment"
+                            android:backgroundTint="#26E171"
+                            android:layout_height="60dp"
+                            android:layout_marginStart="2dp"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:id="@+id/FabAdd"
+                            android:backgroundTint="@color/blue_shade_2"
+                            android:src="@drawable/ic_baseline_add_24"
+                            tools:ignore="ContentDescription" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

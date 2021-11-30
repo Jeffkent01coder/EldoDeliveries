@@ -65,7 +65,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/idEditItemQuantity"
+                    android:id="@+id/idLocation"
                     android:inputType="number"
                     android:textColorHint="@color/white"
                     android:textColor="@color/white"
@@ -85,7 +85,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/idEditItemPrice"
+                    android:id="@+id/idDestination"
                     android:inputType="text"
                     android:textColorHint="@color/white"
                     android:textColor="@color/white"

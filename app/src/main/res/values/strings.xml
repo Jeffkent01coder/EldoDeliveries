@@ -16,5 +16,9 @@
     <string name="phone_number">Phone Number</string>
     <string name="password">Password</string>
     <string name="eldo_deliveries">ELDO DELIVERIES</string>
+    <string name="welcome_to_eldor_hub_deliveries">Welcome to Eldor Hub Deliveries</string>
     <string name="your_choice_of_delivery">Your choice of delivery</string>
+    <string name="send_message">Send message</string>
+    <string name="call_for_delivery">Call for Delivery</string>
+    <string name="make_payment">Make Payment</string>
 </resources>
