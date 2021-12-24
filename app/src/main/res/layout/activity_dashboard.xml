@@ -55,7 +55,7 @@
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/EldoItems"
+            android:id="@+id/rcinfo"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="4dp"
@@ -63,7 +63,8 @@
             android:layout_marginBottom="4dp"
             android:layout_weight="0.5"
             android:paddingTop="8dp"
-            tools:listitem="@layout/eldo_rv_item" />
+            tools:listitem="@layout/item_delivery"
+             />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -142,7 +143,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginStart="10dp"
-                            android:id="@+id/FabAdd"
+                            android:id="@+id/Add"
                             android:backgroundTint="@color/blue_shade_2"
                             android:src="@drawable/ic_baseline_add_24"
                             tools:ignore="ContentDescription" />

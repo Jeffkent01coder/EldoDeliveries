@@ -1,22 +1,22 @@
 package com.jeff.eldodeliveries.ui
 
-import android.app.Dialog
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.SyncStateContract.Helpers.insert
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.*
 import com.jeff.eldodeliveries.R
-import com.jeff.eldodeliveries.adapter.ElRvAdapter
-import com.jeff.eldodeliveries.database.Items
 import com.jeff.eldodeliveries.databinding.ActivityDashboardBinding
-import com.jeff.eldodeliveries.databinding.EldoAddDialogBinding
-import com.jeff.eldodeliveries.viewmodel.El_ViewModel
+import com.jeff.eldodeliveries.ui.adapter.MyAdapter
+
 
 class Dashboard : AppCompatActivity() {
+
+    private lateinit var databaseReference: DatabaseReference
+    private lateinit var userRecyclerView: RecyclerView
+    private lateinit var userArrayList: ArrayList<Information>
+
     private lateinit var binding: ActivityDashboardBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityDashboardBinding.inflate(layoutInflater)
@@ -27,67 +27,52 @@ class Dashboard : AppCompatActivity() {
         binding.btnSend.setOnClickListener {
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, "Hello Moris")
+                putExtra(Intent.EXTRA_TEXT,"Hello Moris")
                 type = "text/plain"
             }
 
-            val shareIntent = Intent.createChooser(sendIntent, null)
+            val shareIntent = Intent.createChooser(sendIntent,null)
             startActivity(shareIntent)
         }
 
-
-        binding.FabAdd.setOnClickListener {
-
+        binding.Add.setOnClickListener {
+            startActivity(Intent(this, Items::class.java))
         }
-        openDialog()
+
+        userRecyclerView = findViewById(R.id.rcinfo)
+        userRecyclerView.layoutManager = LinearLayoutManager(this)
+        userRecyclerView.setHasFixedSize(true)
+
+        userArrayList = arrayListOf<Information>()
+
+        getInfo()
 
     }
 
+    private fun getInfo() {
 
-    fun openDialog(){
-        val dialogBinding = EldoAddDialogBinding.inflate(layoutInflater)
-        val dialog  = Dialog(this)
-        dialog.setContentView(dialogBinding.root)
+        databaseReference = FirebaseDatabase.getInstance().getReference("Information")
+        databaseReference.addValueEventListener(object : ValueEventListener{
 
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()){
 
-        val cancelBtn = findViewById<Button>(R.id.idBtnCancel)
-        val addBtn  = findViewById<Button>(R.id.idBtnAdd) as Button
-        val itemEdit = findViewById<EditText>(R.id.idEditItemName)
-        val destnation = findViewById<EditText>(R.id.idLocation)
-        val location = findViewById<EditText>(R.id.idDestination)
+                    for (userSnapshot in snapshot.children){
 
+                        val user = userSnapshot.getValue(Information::class.java)
+                        userArrayList.add(user!!)
+                    }
 
-        addBtn.setOnClickListener {
-            val itemName : String = dialogBinding.idEditItemName.text.toString().trim()
-            val location : String = dialogBinding.idLocation.text.toString().trim()
-            val destination : String = dialogBinding.idDestination.text.toString().trim()
-
-            //val qty :Int = itemQuantity.toInt()
-            //val pr : Int = itemPrice.toInt()
-
-            if (itemName.isNotEmpty() && location.isNotEmpty() && destination.isNotEmpty()){
-
-                val items = Items(itemName, location, destination)
-                El_ViewModel.insert(items)
-                Toast.makeText(applicationContext,"Item Inserted ", Toast.LENGTH_SHORT).show()
-                ElRvAdapter.notifyDataSetChanged()
-                dialog.dismiss()
-            }else{
-                Toast.makeText(applicationContext,"Please Enter all the data ", Toast.LENGTH_SHORT).show()
+                    userRecyclerView.adapter = MyAdapter(userArrayList)
+                }
 
             }
-            Toast.makeText(this, "Add btn clicked", Toast.LENGTH_SHORT).show()
-        }
 
-        dialogBinding.idBtnCancel.setOnClickListener {
-            dialog.dismiss()
-        }
-        binding.id.setOnClickListener {
+            override fun onCancelled(error: DatabaseError) {
+
+            }
 
 
-        }
-        dialog.show()
-
+        })
     }
-
 }

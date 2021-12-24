@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EldoDeliveries">
         <activity
+            android:name=".ui.Items"
+            android:exported="true" />
+        <activity
             android:name=".ui.Dashboard"
             android:exported="true" />
         <activity

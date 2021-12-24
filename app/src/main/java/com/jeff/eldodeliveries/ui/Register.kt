@@ -42,12 +42,6 @@ class Register : AppCompatActivity() {
                 if (!filled){
                     input.error = "required"
                 }
-//            }.also {
-//                if (filled){
-//                    // Authenticate with firebase later
-//                    startActivity(Intent(this, Login::class.java))
-//                    finish()
-//                }
             }
 
             auth.createUserWithEmailAndPassword(binding.edEmail.text.toString(),binding.edPass.text.toString())

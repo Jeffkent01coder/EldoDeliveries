@@ -21,4 +21,10 @@
     <string name="send_message">Send message</string>
     <string name="call_for_delivery">Call for Delivery</string>
     <string name="make_payment">Make Payment</string>
+    <string name="request">Request</string>
+    <string name="make_delivery_request">Make Delivery Request</string>
+    <string name="enter_item">Enter Item</string>
+    <string name="enter_item_amount_quantity">Enter Item Amount/ quantity</string>
+    <string name="item">Item :</string>
+    <string name="quantity">Quantity :</string>
 </resources>
